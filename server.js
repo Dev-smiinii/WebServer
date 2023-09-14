@@ -11,6 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 const router = require(`./src/index.js`);
 app.use(router);
 
+const boardRouter = require(`./src/board/board.route.js`);
+app.use(`/boards`, boardRouter);
+
 app.listen(8080, () => {
   console.log(`SERVER LISTENING ON PORT 8080`);
 });
