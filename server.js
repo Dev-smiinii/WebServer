@@ -9,7 +9,7 @@ app.use(express.static(`public`));
 app.use(express.urlencoded({ extended: true }));
 
 app.get(`/`, (req, res) => {
-  res.send(`ROUTING TO ROOT`);
+  res.render(`index.html`);
 });
 
 app.listen(8080, () => {
