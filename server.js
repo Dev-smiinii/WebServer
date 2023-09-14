@@ -8,9 +8,8 @@ nunjucks.configure(`views`, { express: app });
 app.use(express.static(`public`));
 app.use(express.urlencoded({ extended: true }));
 
-app.get(`/`, (req, res) => {
-  res.render(`index.html`);
-});
+const router = require(`./src/index.js`);
+app.use(router);
 
 app.listen(8080, () => {
   console.log(`SERVER LISTENING ON PORT 8080`);
