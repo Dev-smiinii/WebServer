@@ -14,6 +14,9 @@ app.use(router);
 const boardRouter = require(`./src/board/board.route.js`);
 app.use(`/boards`, boardRouter);
 
+const userRouter = require(`./src/user/user.route.js`);
+app.use(`/users`, userRouter);
+
 app.listen(8080, () => {
   console.log(`SERVER LISTENING ON PORT 8080`);
 });
