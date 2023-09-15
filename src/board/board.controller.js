@@ -1,7 +1,10 @@
 const boardService = require(`./board.service`);
 
 exports.getList = (req, res) => {
-  res.render(`board/list.html`);
+  const result = boardService.getFindAll(); // []
+  // console.log(result)
+
+  res.render(`board/list.html`, { list: result });
 };
 
 exports.getWrite = (req, res) => {
@@ -9,7 +12,11 @@ exports.getWrite = (req, res) => {
 };
 
 exports.getView = (req, res) => {
-  res.render(`board/view.html`);
+  const { id } = req.query;
+  const result = boardService.getFindOne(id);
+  // console.log(result)
+
+  res.render(`board/view.html`, { ...result });
 };
 
 exports.getModify = (req, res) => {
@@ -17,7 +24,9 @@ exports.getModify = (req, res) => {
 };
 
 exports.postWrite = (req, res) => {
-  res.redirect(`/boards/view`);
+  const { id } = boardService.create(req.body);
+
+  res.redirect(`/boards/view?id=${id}`);
 };
 
 exports.postModify = (req, res) => {
