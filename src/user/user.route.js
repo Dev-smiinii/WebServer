@@ -1,20 +1,14 @@
 const express = require(`express`);
 const router = express.Router();
 
-router.get(`/login`, (req, res) => {
-  res.render(`user/login.html`);
-});
+const controller = require(`./user.controller`);
 
-router.get(`/join`, (req, res) => {
-  res.render(`user/join.html`);
-});
+router.get(`/login`, controller.getLogin);
 
-router.post(`/login`, (req, res) => {
-  res.redirect(`/boards/list`);
-});
+router.get(`/join`, controller.getJoin);
 
-router.post(`/join`, (req, res) => {
-  res.redirect(`/users/login`);
-});
+router.post(`/login`, controller.postLogin);
+
+router.post(`/join`, controller.postJoin);
 
 module.exports = router;
