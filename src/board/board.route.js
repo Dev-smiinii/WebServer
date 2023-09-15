@@ -1,32 +1,20 @@
 const express = require(`express`);
 const router = express.Router();
 
-router.get(`/list`, (req, res) => {
-  res.render(`board/list.html`);
-});
+const controller = require(`./board.controller`);
 
-router.get(`/write`, (req, res) => {
-  res.render(`board/write.html`);
-});
+router.get(`/list`, controller.getList);
 
-router.get(`/view`, (req, res) => {
-  res.render(`board/view.html`);
-});
+router.get(`/write`, controller.getWrite);
 
-router.get(`/modify`, (req, res) => {
-  res.render(`board/modify.html`);
-});
+router.get(`/view`, controller.getView);
 
-router.post(`/write`, (req, res) => {
-  res.redirect(`/boards/view`);
-});
+router.get(`/modify`, controller.getModify);
 
-router.post(`/modify`, (req, res) => {
-  res.redirect(`/boards/view`);
-});
+router.post(`/write`, controller.postWrite);
 
-router.post(`/delete`, (req, res) => {
-  res.redirect(`/boards/list`);
-});
+router.post(`/modify`, controller.postModify);
+
+router.post(`/delete`, controller.postDelete);
 
 module.exports = router;
