@@ -1,14 +1,14 @@
 const express = require(`express`);
 const router = express.Router();
 
-const controller = require(`./user.controller`);
+const userController = require(`./user.controller`);
 
-router.get(`/login`, controller.getLogin);
+router.get(`/login`, userController.getLogin);
 
-router.get(`/join`, controller.getJoin);
+router.get(`/join`, userController.getJoin);
 
-router.post(`/login`, controller.postLogin);
+router.post(`/login`, userController.postLogin);
 
-router.post(`/join`, controller.postJoin);
+router.post(`/join`, userController.postJoin);
 
 module.exports = router;
