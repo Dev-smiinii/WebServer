@@ -1,41 +1,27 @@
-exports.getList =
-  (`/list`,
-  (req, res) => {
-    res.render(`board/list.html`);
-  });
+exports.getList = (req, res) => {
+  res.render(`board/list.html`);
+};
 
-exports.getWrite =
-  (`/write`,
-  (req, res) => {
-    res.render(`board/write.html`);
-  });
+exports.getWrite = (req, res) => {
+  res.render(`board/write.html`);
+};
 
-exports.getView =
-  (`/view`,
-  (req, res) => {
-    res.render(`board/view.html`);
-  });
+exports.getView = (req, res) => {
+  res.render(`board/view.html`);
+};
 
-exports.getModify =
-  (`/modify`,
-  (req, res) => {
-    res.render(`board/modify.html`);
-  });
+exports.getModify = (req, res) => {
+  res.render(`board/modify.html`);
+};
 
-exports.postWrite =
-  (`/write`,
-  (req, res) => {
-    res.redirect(`/boards/view`);
-  });
+exports.postWrite = (req, res) => {
+  res.redirect(`/boards/view`);
+};
 
-exports.postModify =
-  (`/modify`,
-  (req, res) => {
-    res.redirect(`/boards/view`);
-  });
+exports.postModify = (req, res) => {
+  res.redirect(`/boards/view`);
+};
 
-exports.postDelete =
-  (`/delete`,
-  (req, res) => {
-    res.redirect(`/boards/list`);
-  });
+exports.postDelete = (req, res) => {
+  res.redirect(`/boards/list`);
+};
